@@ -21,6 +21,8 @@ public class Test : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        //测试一个树状图
         CheckTree();
 
     }

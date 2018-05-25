@@ -2,23 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct BaseRoleData
-{
-    public int RoleID;
-    public BaseCareerData CareerData;
-    public List<BaseSkillData> SkillData;
-    public List<BaseEquipmentData> EquipmentData;
-
-    public BaseRoleData(int roleID,  BaseCareerData careerData, List<BaseSkillData> skillData, List<BaseEquipmentData> equipmentData)
-    {
-        RoleID = roleID;
-        CareerData = careerData;
-        SkillData = skillData;
-        EquipmentData = equipmentData;
-    }
-}
-
-
 public class TeamInfo : ASingleton<TeamInfo> {
 
     /// <summary> 我的队伍成员 </summary>
@@ -30,7 +13,7 @@ public class TeamInfo : ASingleton<TeamInfo> {
         bool hasRole = false;
         foreach(BaseRoleData data in MyTeamDataList)
         {
-            if (data.RoleID == roleId)
+            if (data.RoleId == roleId)
             {
                 hasRole = true;
                 break;
@@ -46,7 +29,7 @@ public class TeamInfo : ASingleton<TeamInfo> {
         int count = MyTeamDataList.Count;
         for (int i = 0;i < count;i ++)
         {
-            if (MyTeamDataList[i].RoleID == roleId)
+            if (MyTeamDataList[i].RoleId == roleId)
             {
                 index = i;
                 break;
@@ -58,7 +41,7 @@ public class TeamInfo : ASingleton<TeamInfo> {
     /// <summary> 添加一个成员到我的队伍中 </summary>
     public void AddRoleToMyTeam(BaseRoleData roleData)
     {
-        if (CheckHasRole(roleData.RoleID))
+        if (CheckHasRole(roleData.RoleId))
         {
             Util.LogError("队伍成员中已有该人物了");
         }
